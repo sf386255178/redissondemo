@@ -131,12 +131,13 @@ public class DaoTestService {
             // 尝试加锁，上锁以后10秒自动解锁
             writeLock.lock(10,TimeUnit.SECONDS);
             System.out.println("线程 " + Thread.currentThread().getId() + " 获得锁：" + System.currentTimeMillis());
+            //实际业务操作
             mysqlDao.update("t_shop_detail", Chain.make("ele_base_price", num), Cnd.where("id", "=", 1));
             Thread.sleep(1000 * 2);
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        finally {
+//        finally { //若不提前设置看门狗，或者业务结束后释放锁，其他会话将会进入无线等待循环
 //            System.out.println("线程 " + Thread.currentThread().getId() + " 释放锁：" + System.currentTimeMillis());
 //            writeLock.unlock();
 //        }
