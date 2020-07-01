@@ -26,9 +26,9 @@ public class MacUtils {
             UnknownHostException {
         String str = "";
         String macAddress = "";
-        if (ipAddress == "192.168.2.65"){//自己的ip
-            ipAddress = "127.0.0.1";
-        }
+//        if (ipAddress == "192.168.2.65"){//自己的ip
+//            ipAddress = "127.0.0.1";
+//        }
         final String LOOPBACK_ADDRESS = "127.0.0.1";
         // 如果为127.0.0.1,则获取本地MAC地址。
         if (LOOPBACK_ADDRESS.equals(ipAddress)) {
@@ -106,5 +106,9 @@ public class MacUtils {
         }
 
         return ipAddress;
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(getMac("192.168.2.65"));
     }
 }
