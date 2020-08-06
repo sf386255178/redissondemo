@@ -23,7 +23,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             isPass = true;
             System.out.println("验证通过");
         }
-        
+
 
         if (!isPass){
             System.out.println("未通过验证");
