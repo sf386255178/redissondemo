@@ -15,11 +15,10 @@ import javax.sql.DataSource;
 @Configuration
 @Component("mysqlDao")
 public class NutzDaoConfig extends NutDao implements Dao {
-//	@Qualifier("mysqlDataSource")
-    DataSource mysqlDruidDataSource;
+    @Qualifier("mysqlDataSource") DataSource mysqlDruidDataSource;
 
     @Autowired
-    public void setDruidDataSource( DataSource druidDataSource) {
+    public void setDruidDataSource(@Qualifier("mysqlDataSource") DataSource druidDataSource) {
         this.mysqlDruidDataSource = druidDataSource;
         setDataSource(druidDataSource);
     }
