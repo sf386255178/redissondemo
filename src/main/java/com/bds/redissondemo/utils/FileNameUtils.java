@@ -53,7 +53,7 @@ public class FileNameUtils {
         }
 
         try {
-            //传入的File参数是应该包含文件而不是文件路径，transferTo()并不会将文件转存到文件夹下。即path+filename
+            //传入的File参数是应该包含文件而不是文件路径,transferTo()并不会将文件转存到文件夹下。即path+filename
             //保存文件
             file.transferTo(dest);
             return true;

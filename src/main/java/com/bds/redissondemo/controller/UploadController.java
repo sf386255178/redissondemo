@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @Author :Kevin Ding;
@@ -20,11 +21,17 @@ public class UploadController {
     @Autowired
     private UploadService service;
 
+    /**
+     * 上传图片到本地E盘，并生成可访问的url路径
+     * @param file
+     * @param request
+     * @return 已上传图片的url
+     */
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     @ResponseBody
-    public String upload(MultipartFile[] file, HttpServletRequest request){
-        int num = service.uploadImg(file,request);
-        return "上传了" + num + "张图片";
+    public List upload(MultipartFile[] file, HttpServletRequest request){
+        List num = service.uploadImg(file,request);
+        return  num ;
     }
 
 }
