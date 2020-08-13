@@ -3,6 +3,9 @@ package com.bds.redissondemo.controller;
 import com.bds.redissondemo.service.DaoTestService;
 import com.bds.redissondemo.utils.MacUtils;
 import com.bds.redissondemo.utils.RedisLockUtils;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.nutz.dao.entity.Record;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +37,7 @@ public class DaoTestController {
     @Autowired
     RedisLockUtils redisLockUtils;
 
+    @ApiOperation(value = "测试接口",notes = "测试接口")
     @RequestMapping("/test")
     @ResponseBody
     public List<Record> getData(){
