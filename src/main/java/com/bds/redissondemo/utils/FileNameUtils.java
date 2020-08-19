@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * @Author :Kevin Ding;
  * @TIME :2020/8/12;
- * @TODO :;
+ * @TODO :通用文件工具类;
  */
 public class FileNameUtils {
     /**
