@@ -18,6 +18,42 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+<!--	配置项目环境，项目启动时，配置自动加载-->
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<javaenv>local</javaenv>
+				<datasource.url>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT</datasource.url>
+				<datasource.username>root</datasource.username>
+				<datasource.password>386255</datasource.password>
+				<redis.host>localhost</redis.host>
+				<redis.port>6379</redis.port>
+				<redis.db>1</redis.db>
+				<port>8081</port>
+			</properties>
+<!--			激活方式-->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>test</id>
+			<properties>
+				<javaenv>test</javaenv>
+				<datasource.url>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT</datasource.url>
+				<datasource.username>root</datasource.username>
+				<datasource.password>386255</datasource.password>
+				<redis.host>localhost</redis.host>
+				<redis.port>6379</redis.port>
+				<redis.db>1</redis.db>
+				<port>8088</port>
+			</properties>
+
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -65,6 +101,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.9</version>
+		</dependency>
+		<!-- commons-configuration 自动加载的是2.1的版本，编译时会报错，所以再加上这个 -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+<!--		swagger接口文档-->
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.7.0</version>
@@ -83,6 +132,15 @@
 
 	<build>
 		<plugins>
+<!--			不加这个插件，无法正常使用自定义环境的使用-->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<useDefaultDelimiters>true</useDefaultDelimiters>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

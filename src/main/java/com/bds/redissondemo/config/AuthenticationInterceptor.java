@@ -19,6 +19,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("token");
         boolean isPass = false;
+//        boolean isPass = true;
         if ("123".equals(token)){
             isPass = true;
             System.out.println("验证通过");
