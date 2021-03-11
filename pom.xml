@@ -130,12 +130,45 @@
 			<version>2.7.0</version>
 		</dependency>
 
-<!--		<dependency>-->
+
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>2.0.15</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/fontbox -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>fontbox</artifactId>
+			<version>2.0.15</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/jempbox -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>jempbox</artifactId>
+			<version>1.8.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId> e-iceblue </groupId>
+			<artifactId>spire.pdf</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->
 <!--			<artifactId>spring-boot-starter-data-redis</artifactId>-->
 <!--		</dependency>-->
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>com.e-iceblue</id>
+			<name>e-iceblue</name>
+			<url>http://repo.e-iceblue.com/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 <!--			不加这个插件，无法正常使用自定义环境的使用-->
