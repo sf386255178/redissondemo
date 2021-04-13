@@ -16,8 +16,8 @@ import javax.annotation.PostConstruct;
  * @TIME :2020/9/2;
  * @TODO :随便自定义的配置类，随项目启动;
  */
-@Configuration
-@DependsOn("getRedisson")//redisson启动后再加载此类
+//@Configuration
+//@DependsOn("getRedisson")//redisson启动后再加载此类
 public class DiyConfig {
 
     @NacosInjected
