@@ -44,6 +44,10 @@ public class DaoTestController {
         return service.getData();
     }
 
+    /**
+     * 测试锁
+     * @return
+     */
     @RequestMapping("/lockTest")
     @ResponseBody
     public String lockTest(){
