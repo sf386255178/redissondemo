@@ -55,6 +55,10 @@ public class DaoTestController {
         return "测试";
     }
 
+    /**
+     * 获取锁测试
+     * @return
+     */
     @RequestMapping("/getLock")
     @ResponseBody
     public String getLock(){
