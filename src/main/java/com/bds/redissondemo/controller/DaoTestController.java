@@ -49,7 +49,7 @@ public class DaoTestController {
     public String lockTest(){
         redisLockUtils.testLock();
         return "测试";
-    }
+    } 
 
     /**
      * 获取锁测试
